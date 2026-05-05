@@ -23,12 +23,16 @@ if (!city) {
   document.getElementById('hero-icons').textContent = `${flag} ${meta.emoji}`;
 
   // City name
-  document.getElementById('city-name').textContent = city.city;
+  const cityKo = CITY_KO[city.city] || '';
+  document.getElementById('city-name').innerHTML =
+    city.city + (cityKo ? ` <span class="name-ko">${cityKo}</span>` : '');
 
   // Meta line
+  const countryKo = COUNTRY_KO[city.country] || '';
+  const countryStr = city.country + (countryKo ? ` (${countryKo})` : '');
   const yearPart = city.year ? ` · ${city.year}년` : '';
   document.getElementById('city-meta').textContent =
-    `${city.country} · ${meta.label}${yearPart}`;
+    `${countryStr} · ${meta.label}${yearPart}`;
 
   // Notes or empty state
   const hasNotes = city.notes && city.notes.trim().length > 0;

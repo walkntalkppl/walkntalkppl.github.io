@@ -5,13 +5,16 @@ const map = L.map('map', {
   minZoom: 2,
   maxZoom: 12,
   zoomSnap: 0.5,
-  wheelPxPerZoomLevel: 80
+  wheelPxPerZoomLevel: 80,
+  maxBounds: [[-90, -180], [90, 180]],
+  maxBoundsViscosity: 1.0
 });
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com">CARTO</a>',
   subdomains: 'abcd',
-  maxZoom: 19
+  maxZoom: 19,
+  noWrap: true
 }).addTo(map);
 
 L.control.zoom({ position: 'bottomright' }).addTo(map);
@@ -44,8 +47,8 @@ function makeTooltip(city) {
     </div>
     <div class="tt-body">
       <div class="tt-region">${meta.emoji} ${meta.label}</div>
-      <div class="tt-city">${city.city}</div>
-      <div class="tt-country">${city.country}</div>
+      <div class="tt-city">${city.city}<span class="tt-ko">${CITY_KO[city.city] || ''}</span></div>
+      <div class="tt-country">${city.country}<span class="tt-ko">${COUNTRY_KO[city.country] || ''}</span></div>
       ${yearEl}
       ${hintEl}
     </div>
@@ -89,7 +92,12 @@ CITIES.forEach(city => {
 
 // ── Fit view to all markers ─────────────────────────────────────────────────
 if (allLatLngs.length > 0) {
-  map.fitBounds(allLatLngs, { padding: [60, 60], maxZoom: 4 });
+  const isMobile = window.innerWidth < 768;
+  if (isMobile) {
+    map.setView([36.5, 127.5], 6);
+  } else {
+    map.fitBounds(allLatLngs, { padding: [60, 60], maxZoom: 4 });
+  }
 }
 
 // ── Stats ───────────────────────────────────────────────────────────────────

@@ -73,6 +73,16 @@ body {
   margin-bottom: 10px;
 }
 
+.name-ko {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 2.5vw, 20px);
+  font-weight: 300;
+  opacity: 0.65;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
 #city-meta {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.65);

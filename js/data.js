@@ -31,6 +31,54 @@ const REGION_META = {
   }
 };
 
+const CITY_KO = {
+  'London': '런던', 'Paris': '파리', 'Amsterdam': '암스테르담', 'Berlin': '베를린',
+  'Munich': '뮌헨', 'Vienna': '빈', 'Prague': '프라하', 'Český Krumlov': '체스키크룸로프',
+  'Stockholm': '스톡홀름', 'Oslo': '오슬로', 'Copenhagen': '코펜하겐', 'Humlebaek': '훔레벡',
+  'Helsingør': '헬싱외르', 'Zurich': '취리히', 'Milan': '밀라노', 'Rome': '로마',
+  'Madrid': '마드리드', 'Barcelona': '바르셀로나', 'Lisbon': '리스본', 'Istanbul': '이스탄불',
+  'Ankara': '앙카라', 'Bangkok': '방콕', 'Hanoi': '하노이', 'Tokyo': '도쿄', 'Osaka': '오사카',
+  'Münster': '뮌스터', 'Hamburg': '함부르크', 'Porto': '포르투', 'Guimaraes': '기마랑이스',
+  'Braga': '브라가', 'Coimbra': '코임브라', 'Nazare': '나자레', 'Cascais': '카스카이스',
+  'Sintra': '신트라', 'Lagos': '라고스', 'Sagres': '사그레스', 'Portimao': '포르티마웅',
+  'Albufeira': '알부페이라', 'Faro': '파루', 'Sevilla': '세비야', 'Ronda': '론다',
+  'Malaga': '말라가', 'Nerja': '네르하', 'Granada': '그라나다', 'Murcia': '무르시아',
+  'Cartagena': '카르타헤나', 'Valencia': '발렌시아', 'Bilbao': '빌바오', 'Nice': '니스',
+  'Firenze': '피렌체', 'Venezia': '베네치아', 'Como': '코모', 'Bernareggio': '베르나레조',
+  'Marseille': '마르세유', 'Lyon': '리옹', 'Ronchamp': '롱샹', 'Mulhouse': '뮐루즈',
+  'La Tourette': '라 투레트', 'Aix-en-Provence': '엑상프로방스', 'Lausanne': '로잔',
+  'Bern': '베른', 'Luzern': '루체른', 'Basel': '바젤', 'Lugano': '루가노',
+  'Ticino': '티치노', 'Vals': '발스', 'Stuttgart': '슈투트가르트', 'Weil am Rhein': '바일암라인',
+  'Frankfurt': '프랑크푸르트', 'Koln': '쾰른', 'Rotterdam': '로테르담', 'Den Haag': '덴하그',
+  'Almere': '알메러', 'Delft': '델프트', 'Utrecht': '위트레흐트', 'Hilversum': '힐베르쉼',
+  'Siem Reap': '시엠레아프', 'Luang Prabang': '루앙프라방', 'Ho Chi Minh City': '호찌민',
+  'Da Nang': '다낭', 'Beijing': '베이징', 'Guangzhou': '광저우', 'Shanghai': '상하이',
+  'Hong Kong': '홍콩', 'Kyoto': '교토', 'Takamatsu': '다카마쓰', 'Taipei': '타이베이',
+  'Taitung': '타이둥', 'Seoul': '서울', 'Daegu': '대구', 'Busan': '부산', 'Gwangju': '광주',
+  'Gangneung': '강릉', 'Sokcho': '속초', 'Donghae': '동해', 'Chuncheon': '춘천',
+  'Mokpo': '목포', 'Suncheon': '순천', 'Yeosu': '여수', 'Tongyeong': '통영', 'Geoje': '거제',
+  'Wando': '완도', 'Gwangyang': '광양', 'Cheonan': '천안', 'Pyeongtaek': '평택',
+  'Suwon': '수원', 'Hwaseong': '화성', 'Incheon': '인천', 'Gyeongju': '경주',
+  'Pohang': '포항', 'Daejeon': '대전', 'Hapcheon': '합천', 'Jinju': '진주',
+  'Chungju': '충주', 'Jeonju': '전주', 'Gunsan': '군산', 'Iksan': '익산',
+  'Ansan': '안산', 'Siheung': '시흥', 'Goseong': '고성', 'Yangyang': '양양',
+  'Wonju': '원주', 'Ulsan': '울산', 'Miryang': '밀양', 'Changwon': '창원',
+  'Gimhae': '김해', 'Jindo': '진도'
+};
+
+const COUNTRY_KO = {
+  'United Kingdom': '영국', 'France': '프랑스', 'Netherlands': '네덜란드', 'Germany': '독일',
+  'Austria': '오스트리아', 'Czech Republic': '체코', 'Poland': '폴란드', 'Sweden': '스웨덴',
+  'Norway': '노르웨이', 'Denmark': '덴마크', 'Finland': '핀란드', 'Switzerland': '스위스',
+  'Italy': '이탈리아', 'Spain': '스페인', 'Portugal': '포르투갈', 'Ireland': '아일랜드',
+  'Greece': '그리스', 'Hungary': '헝가리', 'Romania': '루마니아', 'Serbia': '세르비아',
+  'Croatia': '크로아티아', 'Ukraine': '우크라이나', 'Turkey': '튀르키예', 'Estonia': '에스토니아',
+  'Lithuania': '리투아니아', 'Thailand': '태국', 'Singapore': '싱가포르', 'Indonesia': '인도네시아',
+  'Malaysia': '말레이시아', 'Vietnam': '베트남', 'Japan': '일본', 'Cambodia': '캄보디아',
+  'Laos': '라오스', 'China': '중국', 'Hong Kong': '홍콩', 'Taiwan': '대만',
+  'South Korea': '대한민국'
+};
+
 const COUNTRY_FLAGS = {
   'United Kingdom': '🇬🇧',
   'France': '🇫🇷',
@@ -191,7 +239,21 @@ const CITIES = [
   { city: "Pohang", country: "South Korea", region: "korea", lat: 36.0190, lon: 129.3435, year: null, notes: "" },
   { city: "Daejeon", country: "South Korea", region: "korea", lat: 36.3504, lon: 127.3845, year: null, notes: "" },
   { city: "Hapcheon", country: "South Korea", region: "korea", lat: 35.5664, lon: 128.1659, year: null, notes: "" },
-  { city: "Jinju", country: "South Korea", region: "korea", lat: 35.1928, lon: 128.1086, year: null, notes: "" }
+  { city: "Jinju", country: "South Korea", region: "korea", lat: 35.1928, lon: 128.1086, year: null, notes: "" },
+  { city: "Chungju", country: "South Korea", region: "korea", lat: 36.9910, lon: 127.9259, year: null, notes: "" },
+  { city: "Jeonju", country: "South Korea", region: "korea", lat: 35.8242, lon: 127.1480, year: null, notes: "" },
+  { city: "Gunsan", country: "South Korea", region: "korea", lat: 35.9677, lon: 126.7368, year: null, notes: "" },
+  { city: "Iksan", country: "South Korea", region: "korea", lat: 35.9483, lon: 126.9576, year: null, notes: "" },
+  { city: "Ansan", country: "South Korea", region: "korea", lat: 37.3219, lon: 126.8309, year: null, notes: "" },
+  { city: "Siheung", country: "South Korea", region: "korea", lat: 37.3800, lon: 126.8029, year: null, notes: "" },
+  { city: "Goseong", country: "South Korea", region: "korea", lat: 38.3806, lon: 128.4675, year: null, notes: "" },
+  { city: "Yangyang", country: "South Korea", region: "korea", lat: 38.0754, lon: 128.6189, year: null, notes: "" },
+  { city: "Wonju", country: "South Korea", region: "korea", lat: 37.3422, lon: 127.9201, year: null, notes: "" },
+  { city: "Ulsan", country: "South Korea", region: "korea", lat: 35.5384, lon: 129.3114, year: null, notes: "" },
+  { city: "Miryang", country: "South Korea", region: "korea", lat: 35.5038, lon: 128.7480, year: null, notes: "" },
+  { city: "Changwon", country: "South Korea", region: "korea", lat: 35.2279, lon: 128.6811, year: null, notes: "" },
+  { city: "Gimhae", country: "South Korea", region: "korea", lat: 35.2286, lon: 128.8890, year: null, notes: "" },
+  { city: "Jindo", country: "South Korea", region: "korea", lat: 34.4873, lon: 126.2634, year: null, notes: "" }
 ];
 
 // 여행 루트 데이터

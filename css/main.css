@@ -98,6 +98,29 @@ body {
   margin-top: 4px;
 }
 
+.site-author {
+  font-size: 9px;
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+
+/* ─── Copyright ─────────────────────────────── */
+#site-copyright {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  font-size: 10px;
+  color: var(--text-muted);
+  opacity: 0.4;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
 /* ─── Footer bar (legend + stats) ───────────── */
 #site-footer {
   position: fixed;
@@ -269,6 +292,14 @@ body {
   font-size: 11px;
   color: var(--text-muted);
   margin-bottom: 9px;
+}
+
+.tt-ko {
+  font-family: var(--font-sans);
+  font-size: 0.8em;
+  opacity: 0.6;
+  margin-left: 5px;
+  font-weight: 300;
 }
 
 .tt-year {

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WalkNTalk — 나의 여행 지도</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <header id="site-header">
+    <h1 class="site-title">WalkNTalk</h1>
+    <p class="site-tagline">나의 여행 지도</p>
+  </header>
+
+  <div id="site-footer">
+    <div id="region-legend">
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#9b8fff; box-shadow:0 0 6px #9b8fff88"></span>
+        <span>유럽</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#38ef7d; box-shadow:0 0 6px #38ef7d88"></span>
+        <span>동남아</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#ff9a9e; box-shadow:0 0 6px #ff9a9e88"></span>
+        <span>일본</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#fbbf24; box-shadow:0 0 6px #fbbf2488"></span>
+        <span>동아시아</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot" style="background:#f43f5e; box-shadow:0 0 6px #f43f5e88"></span>
+        <span>한국</span>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div id="site-stats">
+      <span id="stat-cities">0</span>개 도시 &middot; <span id="stat-countries">0</span>개국
+    </div>
+  </div>
+
+  <div id="routes-panel">
+    <button class="routes-header" id="routes-toggle" aria-expanded="true">
+      <span class="routes-header-label">여행 루트</span>
+      <span class="routes-chevron">▲</span>
+    </button>
+    <div id="routes-list"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

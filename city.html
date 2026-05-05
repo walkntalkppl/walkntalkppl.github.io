@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WalkNTalk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/city.css">
+</head>
+<body>
+
+  <div id="hero">
+    <a href="index.html" class="back-link">← 지도로 돌아가기</a>
+    <div class="hero-content">
+      <div id="hero-icons"></div>
+      <h1 id="city-name"></h1>
+      <p id="city-meta"></p>
+    </div>
+  </div>
+
+  <main id="content">
+    <section id="notes-section" class="hidden">
+      <div id="notes-body"></div>
+    </section>
+
+    <section id="empty-state" class="hidden">
+      <p class="empty-main">아직 기록이 없어요.</p>
+      <p class="empty-sub">
+        <code>js/data.js</code> 파일에서 이 도시의 <code>notes</code>를 채워보세요.
+      </p>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/city.js"></script>
+</body>
+</html>

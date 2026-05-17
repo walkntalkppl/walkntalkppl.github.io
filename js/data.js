@@ -26,7 +26,7 @@ const REGION_META = {
 };
 
 const CITY_KO = {
-  'London': '런던', 'Paris': '파리', 'Amsterdam': '암스테르담', 'Berlin': '베를린',
+  'London': '런던', 'Glasgow': '글래스고', 'Paris': '파리', 'Amsterdam': '암스테르담', 'Berlin': '베를린',
   'Munich': '뮌헨', 'Vienna': '빈', 'Prague': '프라하', 'Český Krumlov': '체스키크룸로프',
   'Stockholm': '스톡홀름', 'Oslo': '오슬로', 'Copenhagen': '코펜하겐', 'Humlebaek': '훔레벡',
   'Helsingør': '헬싱외르', 'Zurich': '취리히', 'Milan': '밀라노', 'Rome': '로마',
@@ -122,6 +122,7 @@ function getCityId(cityName) {
 // notes: 여행 기록 (문자열, 없으면 "" — 문단 구분은 \n\n)
 const CITIES = [
   { city: "London", country: "United Kingdom", region: "europe", lat: 51.5072, lon: -0.1276, year: null, notes: "" },
+  { city: "Glasgow", country: "United Kingdom", region: "europe", lat: 55.8642, lon: -4.2518, year: null, notes: "" },
   { city: "Paris", country: "France", region: "europe", lat: 48.8566, lon: 2.3522, year: null, notes: "" },
   { city: "Amsterdam", country: "Netherlands", region: "europe", lat: 52.3676, lon: 4.9041, year: null, notes: "" },
   { city: "Berlin", country: "Germany", region: "europe", lat: 52.52, lon: 13.405, year: null, notes: "" },
@@ -266,13 +267,15 @@ const ROUTES = [
         cities: ['Amsterdam', 'Almere', 'Rotterdam', 'Delft', 'Den Haag', 'Utrecht', 'Hilversum',
                  'Koln', 'Frankfurt', 'Stuttgart', 'Ronchamp', 'Mulhouse',
                  'Basel', 'Weil am Rhein', 'Bern', 'Luzern', 'Zurich', 'Ticino', 'Lugano', 'Vals',
-                 'Bern', 'Lyon', 'La Tourette', 'Aix-en-Provence', 'Marseille']
+                 'Bern', 'Lyon', 'La Tourette', 'Aix-en-Provence', 'Marseille'],
+        transport: ['🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌',
+                    '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌']
       },
       {
         color: '#f59e0b',
         cities: ['Marseille', 'Barcelona',
-                 'Rome', 'Firenze', 'Milan', 'Venezia',
-                 'Vienna', 'Prague', 'Berlin', 'Paris', 'London']
+                 'Rome', 'Firenze', 'Milan'],
+        transport: ['🚄', '✈️', '🚄', '🚄']
       },
       {
         color: '#f59e0b',
@@ -284,7 +287,18 @@ const ROUTES = [
       },
       {
         color: '#f59e0b',
-        cities: ['Prague', 'Český Krumlov']
+        cities: ['Milan', 'Venezia', 'Vienna', 'Prague'],
+        transport: ['🚄', '🚄', '🚄']
+      },
+      {
+        color: '#f59e0b',
+        cities: ['Prague', 'Český Krumlov'],
+        transport: ['🚄']
+      },
+      {
+        color: '#f59e0b',
+        cities: ['Prague', 'Berlin', 'Paris', 'Glasgow', 'London'],
+        transport: ['🚄', '✈️', '✈️', '🚌']
       }
     ]
   },
@@ -294,7 +308,10 @@ const ROUTES = [
     period: '2017. 9–10월',
     color: '#fb923c',
     segments: [
-      ['Amsterdam', 'Münster', 'Hamburg', 'Copenhagen', 'Stockholm']
+      {
+        cities: ['Amsterdam', 'Münster', 'Hamburg', 'Copenhagen', 'Stockholm'],
+        transport: ['🚌', '🚌', '✈️', '✈️']
+      }
     ]
   },
   {
@@ -303,16 +320,20 @@ const ROUTES = [
     period: '2024. 6–8월',
     color: '#4ade80',
     segments: [
-      ['Porto', 'Guimaraes'],
-      ['Porto', 'Braga', 'Coimbra', 'Nazare',
-       'Lisbon', 'Lagos', 'Portimao', 'Albufeira', 'Faro', 'Sevilla', 'Ronda',
-       'Malaga', 'Nerja', 'Granada', 'Murcia', 'Cartagena',
-       'Valencia', 'Madrid'],
-      ['Lisbon', 'Cascais'],
-      ['Lisbon', 'Sintra'],
-      ['Lagos', 'Sagres'],
-      ['Madrid', 'Bilbao'],
-      ['Madrid', 'Barcelona', 'Nice']
+      { cities: ['Porto', 'Guimaraes'], transport: ['🚌'] },
+      { cities: ['Porto', 'Braga', 'Coimbra', 'Nazare', 'Lisbon'], transport: ['🚌', '🚌', '🚌', '🚌'] },
+      { cities: ['Lisbon', 'Sintra'], transport: ['🚄'] },
+      { cities: ['Lisbon', 'Cascais'], transport: ['🚄'] },
+      { cities: ['Lisbon', 'Lagos'], transport: ['🚌'] },
+      { cities: ['Lagos', 'Sagres'], transport: ['🚌'] },
+      {
+        cities: ['Lagos', 'Portimao', 'Albufeira', 'Faro', 'Sevilla', 'Ronda',
+                 'Malaga', 'Nerja', 'Granada', 'Murcia', 'Cartagena',
+                 'Valencia', 'Madrid'],
+        transport: ['🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚌', '🚄']
+      },
+      { cities: ['Madrid', 'Bilbao'], transport: ['🚌'] },
+      { cities: ['Madrid', 'Barcelona', 'Nice'], transport: ['🚄', '✈️'] }
     ]
   },
   {
@@ -321,8 +342,8 @@ const ROUTES = [
     period: '2025. 4월',
     color: '#60a5fa',
     segments: [
-      ['Paris', 'Oslo', 'Copenhagen'],
-      ['Copenhagen', 'Humlebaek', 'Helsingør']
+      { cities: ['Paris', 'Oslo', 'Copenhagen'], transport: ['✈️', '✈️'] },
+      { cities: ['Copenhagen', 'Humlebaek', 'Helsingør'], transport: ['🚄', '🚄'] }
     ]
   }
 ];

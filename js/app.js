@@ -162,9 +162,36 @@ ROUTES.forEach(route => {
 
   btn.addEventListener('click', () => {
     const layer = routeLayers[route.id];
-    layer.active = !layer.active;
-    layer.active ? layer.group.addTo(map) : map.removeLayer(layer.group);
-    btn.classList.toggle('active', layer.active);
+    const wasActive = layer.active;
+
+    // Deactivate all routes
+    ROUTES.forEach(r => {
+      const l = routeLayers[r.id];
+      if (l.active) {
+        l.active = false;
+        map.removeLayer(l.group);
+      }
+      document.querySelector(`.route-btn[data-id="${r.id}"]`).classList.remove('active');
+    });
+
+    // Toggle: activate only if it was not already active
+    if (!wasActive) {
+      layer.active = true;
+      layer.group.addTo(map);
+      btn.classList.add('active');
+
+      const coords = route.segments.flatMap(segment => {
+        const cities = Array.isArray(segment) ? segment : segment.cities;
+        return cities.map(name => {
+          const found = CITIES.find(c => c.city === name);
+          return found ? [found.lat, found.lon] : null;
+        }).filter(Boolean);
+      });
+
+      if (coords.length > 0) {
+        map.fitBounds(coords, { padding: [80, 80], maxZoom: 7 });
+      }
+    }
   });
 
   routesList.appendChild(btn);

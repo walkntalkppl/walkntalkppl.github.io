@@ -11,12 +11,6 @@ const REGION_META = {
     gradient: ['#11998e', '#38ef7d'],
     markerColor: '#38ef7d'
   },
-  japan: {
-    label: '일본',
-    emoji: '⛩️',
-    gradient: ['#ff9a9e', '#fad0c4'],
-    markerColor: '#ff9a9e'
-  },
   eastasia: {
     label: '동아시아',
     emoji: '🏯',
@@ -150,8 +144,8 @@ const CITIES = [
   { city: "Ankara", country: "Turkey", region: "europe", lat: 39.9334, lon: 32.8597, year: null, notes: "" },
   { city: "Bangkok", country: "Thailand", region: "sea", lat: 13.7563, lon: 100.5018, year: null, notes: "" },
   { city: "Hanoi", country: "Vietnam", region: "sea", lat: 21.0278, lon: 105.8342, year: null, notes: "" },
-  { city: "Tokyo", country: "Japan", region: "japan", lat: 35.6895, lon: 139.6917, year: null, notes: "" },
-  { city: "Osaka", country: "Japan", region: "japan", lat: 34.6937, lon: 135.5023, year: null, notes: "" },
+  { city: "Tokyo", country: "Japan", region: "eastasia", lat: 35.6895, lon: 139.6917, year: null, notes: "" },
+  { city: "Osaka", country: "Japan", region: "eastasia", lat: 34.6937, lon: 135.5023, year: null, notes: "" },
   { city: "Münster", country: "Germany", region: "europe", lat: 51.9607, lon: 7.6261, year: null, notes: "" },
   { city: "Hamburg", country: "Germany", region: "europe", lat: 53.5753, lon: 10.0153, year: null, notes: "" },
   { city: "Porto", country: "Portugal", region: "europe", lat: 41.1579, lon: -8.6291, year: null, notes: "" },
@@ -211,8 +205,8 @@ const CITIES = [
   { city: "Guangzhou", country: "China", region: "eastasia", lat: 23.1291, lon: 113.2644, year: null, notes: "" },
   { city: "Shanghai", country: "China", region: "eastasia", lat: 31.2304, lon: 121.4737, year: null, notes: "" },
   { city: "Hong Kong", country: "Hong Kong", region: "eastasia", lat: 22.3193, lon: 114.1694, year: null, notes: "" },
-  { city: "Kyoto", country: "Japan", region: "japan", lat: 35.0116, lon: 135.7681, year: null, notes: "" },
-  { city: "Takamatsu", country: "Japan", region: "japan", lat: 34.3401, lon: 134.0434, year: null, notes: "" },
+  { city: "Kyoto", country: "Japan", region: "eastasia", lat: 35.0116, lon: 135.7681, year: null, notes: "" },
+  { city: "Takamatsu", country: "Japan", region: "eastasia", lat: 34.3401, lon: 134.0434, year: null, notes: "" },
   { city: "Taipei", country: "Taiwan", region: "eastasia", lat: 25.0330, lon: 121.5654, year: null, notes: "" },
   { city: "Taitung", country: "Taiwan", region: "eastasia", lat: 22.7583, lon: 121.1444, year: null, notes: "" },
   { city: "Seoul", country: "South Korea", region: "korea", lat: 37.5665, lon: 126.9780, year: null, notes: "" },
